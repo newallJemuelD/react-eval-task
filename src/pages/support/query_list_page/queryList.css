@@ -1,0 +1,50 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    justify-content: left;
+}
+
+.query-list-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+}
+
+.appbar {
+    background-color: black !important;
+}
+
+.title {
+    flex-grow: 1;
+}
+
+.content-container {
+    flex-grow: 1;
+    padding: 2rem;
+}
+
+.query-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.query-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.ask-query-button {
+    background-color: black;
+    color: white;
+}

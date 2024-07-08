@@ -1,0 +1,56 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    justify-content: left;
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: scroll;
+}
+
+.appbar {
+    background-color: black !important;
+    position: sticky;
+}
+
+.support-button {
+    text-decoration-color: white;
+}
+
+.title {
+    flex-grow: 1;
+}
+
+.section1 {
+    margin-top: 5rem; 
+}
+
+.section2 {
+    margin: 0; 
+}
+
+.card-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 1rem;
+}
+
+.card {
+    height: 200px;
+    width: 30%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.card h5 {
+    margin-bottom: 1rem;
+}
+
+.accordion {
+    margin-top: 1rem;
+}

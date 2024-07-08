@@ -1,16 +1,22 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Login from './pages/login';
-import Home from './pages/home';
-import Support from './pages/support';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+import Login from './pages/login/login';
+import Home from './pages/home/home';
+import AskQuery from './pages/support/ask_query/askQuery';
+import QueryList from './pages/support/query_list_page/queryList';
+
 
 const App: React.FC = () => {
   return (
+    <BrowserRouter>
     <Routes>
       <Route path="/" element={<Login/>} />
       <Route path="/home" element={<Home/>} />
-      <Route path="/support" element={<Support/>} />
+      <Route path="/ask_query" element={<AskQuery/>} />
+      <Route path="/query_list" element={<QueryList />} />
     </Routes>
+    </BrowserRouter>
   );
 };
 
