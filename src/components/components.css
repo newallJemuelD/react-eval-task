@@ -1,0 +1,31 @@
+/* Appbar styles */ 
+.appbar {
+    background-color: #3f51b5;
+    padding: 10px;
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .title {
+    font-size: 24px;
+    color: white;
+  }
+  
+  .button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+  
+  .button:hover {
+    text-decoration: underline;
+  }
+
+  /* */ 
