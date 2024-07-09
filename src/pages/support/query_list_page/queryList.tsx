@@ -13,10 +13,17 @@ import './queryList.css';
 
 const QueryList: React.FC = () => {
   const navigate = useNavigate();
-  const queries = useSelector((state: RootState) => state.queries.queries);
+  const currentUser = useSelector((state: RootState) => state.user.currentUser);
+  const queries = useSelector((state: RootState) =>
+    currentUser ? state.queries[currentUser.username] : []
+  );
 
   const handleAskQuery = () => {
     navigate('/ask_query');
+  };
+
+  const handleBack = () => {
+    navigate('/home');
   };
 
   return (
@@ -30,7 +37,7 @@ const QueryList: React.FC = () => {
       </AppBar>
       <Container className="content-container">
         <div className="query-list">
-          {queries.map((query, index) => (
+          {(queries && queries.length > 0) ? queries.map((query, index) => (
             <Card className="query-card" key={index}>
               <CardContent>
                 <Typography variant="h6">Query {index + 1}</Typography>
@@ -40,11 +47,14 @@ const QueryList: React.FC = () => {
                 <Typography variant="body2">Dropdown 4: {query.dropdown4}</Typography>
               </CardContent>
             </Card>
-          ))}
+          )) : null}
         </div>
         <div className="button-row">
           <Button variant="contained" color="primary" onClick={handleAskQuery} className="ask-query-button">
             Ask Query
+          </Button>
+          <Button variant="contained" onClick={handleBack} className="back-button">
+            Back
           </Button>
         </div>
       </Container>

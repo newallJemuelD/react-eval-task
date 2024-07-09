@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,12 +12,14 @@ import CardContent from '@mui/material/CardContent';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 
+import { RootState } from '../../../redux/store';
 import { addQuery } from '../../../redux/querySlice';
 import './askQuery.css';
 
 const AskQuery: React.FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const currentUser = useSelector((state: RootState) => state.user.currentUser);
   const [dropdown1, setDropdown1] = useState<string>('');
   const [dropdown2, setDropdown2] = useState<string>('');
   const [dropdown3, setDropdown3] = useState<string>('');
@@ -25,8 +27,14 @@ const AskQuery: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(addQuery({ dropdown1, dropdown2, dropdown3, dropdown4 }));
-    navigate('/query_list');
+    if (currentUser) {
+      const query = { dropdown1, dropdown2, dropdown3, dropdown4 };
+      dispatch(addQuery({ username: currentUser.username, query }));
+      const queries = JSON.parse(localStorage.getItem(`queries_${currentUser.username}`) || '[]');
+      queries.push(query);
+      localStorage.setItem(`queries_${currentUser.username}`, JSON.stringify(queries));
+      navigate('/query_list');
+    }
   };
 
   const handleBack = () => {

@@ -1,18 +1,29 @@
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { login } from '../../redux/userSlice';
+import { setQueries } from '../../redux/querySlice';
+
 import './login.css';
+
+const allowedUsers = ['user1', 'user2', 'user3'];
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [password, setPassword] = useState<string>(''); // Assuming password is not used for this example
   const [error, setError] = useState<string>('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const handleLogin = (e: FormEvent<HTMLFormElement>) => {
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    // Simple authentication logic (replace with actual authentication)
-    if (username === 'user' && password === 'pass') {
+    if (allowedUsers.includes(username)) {
+      dispatch(login(username));
+      const savedQueries = localStorage.getItem(`queries_${username}`);
+      if (savedQueries) {
+        dispatch(setQueries({ username, queries: JSON.parse(savedQueries) }));
+      }
       navigate('/home');
     } else {
       setError('Invalid username or password');
