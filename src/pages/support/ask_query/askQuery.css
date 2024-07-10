@@ -1,69 +1,96 @@
-
 body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    justify-content: left;
-  }
-  
-  .ask-query-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    overflow-y: auto; /* Enable vertical scrolling */
-  }
-  
-  .appbar {
-    background-color: black !important;
-  }
-  
-  .title {
-    flex-grow: 1;
-  }
-  
-  .content-container {
-    flex-grow: 1;
-    padding: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .form-card {
-    width: 100%;
-    max-width: 600px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 2rem;
-  }
-  
-  .form-title {
-    margin-bottom: 1rem;
-  }
-  
-  .dropdown-row {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-  }
-  
-  .dropdown {
-    flex: 1;
-  }
-  
-  .button-row {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1rem;
-  }
-  
-  .submit-button {
-    background-color: black;
-    color: white;
-  }
-  
-  .back-button {
-    background-color: black;
-    color: white;
-  }
-  
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  justify-content: left;
+}
+
+.ask-query-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-y: auto;
+  /* Enable vertical scrolling */
+}
+
+.appbar {
+  background-color: black !important;
+}
+
+.form-card {
+  width: 400px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+}
+
+.card-content {
+  padding: 0;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.dropdown-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.dropdown {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.select {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  outline: none;
+}
+
+.button-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  text-transform: uppercase;
+}
+
+.submit-button {
+  background-color: #1976d2;
+  color: #fff;
+}
+
+.submit-button:hover {
+  background-color: #1565c0;
+}
+
+.back-button {
+  background-color: #f44336;
+  color: #fff;
+}
+
+.back-button:hover {
+  background-color: #d32f2f;
+}

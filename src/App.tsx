@@ -5,7 +5,7 @@ import Login from './pages/login/login';
 import Home from './pages/home/home';
 import AskQuery from './pages/support/ask_query/askQuery';
 import QueryList from './pages/support/query_list_page/queryList';
-import CardPage from './pages/home/cardPage';
+import CardPage from './pages/home/components/cardPage';
 
 
 const App: React.FC = () => {

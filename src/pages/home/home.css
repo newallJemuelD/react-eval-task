@@ -26,11 +26,11 @@ body {
 }
 
 .section1 {
-    margin-top: 5rem; 
+    margin: 1rem; 
 }
 
 .section2 {
-    margin: 0; 
+    margin: 1rem; 
 }
 
 .card h5 {
@@ -40,3 +40,32 @@ body {
 .accordion {
     margin-top: 1rem;
 }
+
+/* Accordion styling */
+
+details {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    padding: 10px;
+  }
+  
+  summary {
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+  }
+  
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  details[open] summary::after {
+    content: '▲';
+    float: right;
+  }
+  
+  details summary::after {
+    content: '▼';
+    float: right;
+  }

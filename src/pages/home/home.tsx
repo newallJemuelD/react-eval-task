@@ -1,16 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-
 import './home.css';
 import CardRow from './components/cardRowSection';
 import MyAppBar from '../../components/appBar';
@@ -66,40 +56,24 @@ const Home: React.FC = () => {
     },
   ];
 
-  const navigate = useNavigate();
 
   return (
     <div className="home-container">
-      {/* <AppBar className="appbar">
-        <Toolbar>
-          <Typography variant="h6" className="title">
-            Mutual Fund App
-          </Typography>
-          <Button color="inherit" onClick={() => { navigate('/query_list') }}>Support</Button>
-          <Button color="inherit" onClick={() => { navigate('/') }}>Logout</Button>
-        </Toolbar>
-      </AppBar> */}
-      <MyAppBar/>
-      <Container className="container">
-        <div className="section1">
-          <h2>Calculator</h2>
-          <CardRow cardsContent={cardsContent1} />
-          <CardRow cardsContent={cardsContent2} />
-        </div>
-        <div className="section2">
-          <h2>Frequently Asked Questions</h2>
-          {faqs.map((faq, index) => (
-            <Accordion key={index}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography>{faq.question}</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>{faq.answer}</Typography>
-              </AccordionDetails>
-            </Accordion>
-          ))}
-        </div>
-      </Container>
+      <MyAppBar isHome={true} />
+      <div className="section1">
+        <h2>Calculator</h2>
+        <CardRow cardsContent={cardsContent1} />
+        <CardRow cardsContent={cardsContent2} />
+      </div>
+      <div className="section2">
+        <h2>Frequently Asked Questions</h2>
+        {faqs.map((faq, index) => (
+          <details key={index}>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
     </div>
   );
 };

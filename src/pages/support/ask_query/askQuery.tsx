@@ -2,19 +2,10 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import TextField from '@mui/material/TextField';
-import MenuItem from '@mui/material/MenuItem';
-
 import { RootState } from '../../../redux/store';
 import { addQuery } from '../../../redux/querySlice';
 import './askQuery.css';
+import MyAppBar from '../../../components/appBar';
 
 const AskQuery: React.FC = () => {
   const navigate = useNavigate();
@@ -43,89 +34,56 @@ const AskQuery: React.FC = () => {
 
   return (
     <div className="ask-query-container">
-      <AppBar position="static" className="appbar">
-        <Toolbar>
-          <Typography variant="h6" className="title">
-            Mutual Fund App
-          </Typography>
-          <Button color="inherit" onClick={handleBack}>Back</Button>
-        </Toolbar>
-      </AppBar>
-      <Container className="content-container">
-        <Card className="form-card">
-          <CardContent>
-            <Typography variant="h5" component="h2" className="form-title">
-              Ask a Query
-            </Typography>
-            <form onSubmit={handleSubmit}>
-              <div className="dropdown-row">
-                <TextField
-                  select
-                  label="Dropdown 1"
-                  value={dropdown1}
-                  onChange={(e) => setDropdown1(e.target.value)}
-                  variant="outlined"
-                  fullWidth
-                  margin="normal"
-                  className="dropdown"
-                >
-                  <MenuItem value="option1">Option 1</MenuItem>
-                  <MenuItem value="option2">Option 2</MenuItem>
-                </TextField>
-                <TextField
-                  select
-                  label="Dropdown 2"
-                  value={dropdown2}
-                  onChange={(e) => setDropdown2(e.target.value)}
-                  variant="outlined"
-                  fullWidth
-                  margin="normal"
-                  className="dropdown"
-                >
-                  <MenuItem value="option1">Option 1</MenuItem>
-                  <MenuItem value="option2">Option 2</MenuItem>
-                </TextField>
+      <MyAppBar isHome={false} />
+      <div className="form-card">
+        <div className="card-content">
+          <h2 className="form-title">
+            Ask a Query
+          </h2>
+          <form onSubmit={handleSubmit}>
+            <div className="dropdown-row">
+              <div className="dropdown">
+                <label htmlFor="dropdown1" className="label">Dropdown 1</label>
+                <select id="dropdown1" name="dropdown1" onChange={(e) => setDropdown1(e.target.value)} className="select">
+                  <option value="option1">Option 1</option>
+                  <option value="option2">Option 2</option>
+                </select>
               </div>
-              <div className="dropdown-row">
-                <TextField
-                  select
-                  label="Dropdown 3"
-                  value={dropdown3}
-                  onChange={(e) => setDropdown3(e.target.value)}
-                  variant="outlined"
-                  fullWidth
-                  margin="normal"
-                  className="dropdown"
-                >
-                  <MenuItem value="option1">Option 1</MenuItem>
-                  <MenuItem value="option2">Option 2</MenuItem>
-                </TextField>
-                <TextField
-                  select
-                  label="Dropdown 4"
-                  value={dropdown4}
-                  onChange={(e) => setDropdown4(e.target.value)}
-                  variant="outlined"
-                  fullWidth
-                  margin="normal"
-                  className="dropdown"
-                >
-                  <MenuItem value="option1">Option 1</MenuItem>
-                  <MenuItem value="option2">Option 2</MenuItem>
-                </TextField>
+              <div className="dropdown">
+                <label htmlFor="dropdown2" className="label">Dropdown 2</label>
+                <select id="dropdown2" name="dropdown2" onChange={(e) => setDropdown2(e.target.value)} className="select">
+                  <option value="option1">Option 1</option>
+                  <option value="option2">Option 2</option>
+                </select>
               </div>
-              <div className="button-row">
-                <Button type="submit" variant="contained" color="primary" className="submit-button">
-                  Submit
-                </Button>
-                <Button variant="contained" onClick={handleBack} className="back-button">
-                  Back
-                </Button>
+            </div>
+            <div className="dropdown-row">
+              <div className="dropdown">
+                <label htmlFor="dropdown3" className="label">Dropdown 3</label>
+                <select id="dropdown3" name="dropdown3" onChange={(e) => setDropdown3(e.target.value)} className="select">
+                  <option value="option1">Option 1</option>
+                  <option value="option2">Option 2</option>
+                </select>
               </div>
-            </form>
-          </CardContent>
-        </Card>
-      </Container>
+              <div className="dropdown">
+                <label htmlFor="dropdown4" className="label">Dropdown 4</label>
+                <select id="dropdown4" name="dropdown4" onChange={(e) => setDropdown4(e.target.value)} className="select">
+                  <option value="option1">Option 1</option>
+                  <option value="option2">Option 2</option>
+                </select>
+              </div>
+            </div>
+            <div className="button-row">
+              <button type="submit" className="button submit-button">
+                Submit
+              </button>
+              <button type="button" className="button back-button" onClick={handleBack}>
+                Back
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

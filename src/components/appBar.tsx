@@ -3,7 +3,12 @@ import { useNavigate } from 'react-router-dom';
 
 import './components.css';
 
-const MyAppBar : React.FC = () => {
+
+interface MyAppBarProps {
+  isHome: boolean;
+}
+
+const MyAppBar: React.FC<MyAppBarProps> = ({isHome}) => {
   const navigate = useNavigate();
 
   return (
@@ -12,8 +17,11 @@ const MyAppBar : React.FC = () => {
         <div className="title">
           Mutual Fund App
         </div>
-        <button className="button" onClick={() => navigate('/query_list')}>Support</button>
-        <button className="button" onClick={() => navigate('/')}>Logout</button>
+        {isHome ?
+          <div>
+            <button className="button" onClick={() => navigate('/query_list')}>Support</button>
+            <button className="button" onClick={() => navigate('/')}>Logout</button>
+          </div> : null}
       </div>
     </div>
   );

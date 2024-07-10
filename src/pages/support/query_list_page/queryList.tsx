@@ -1,15 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import AppBar from '@mui/material/AppBar';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import Container from '@mui/material/Container';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
+
 import { RootState } from '../../../redux/store';
 import './queryList.css';
+import MyAppBar from '../../../components/appBar';
 
 const QueryList: React.FC = () => {
   const navigate = useNavigate();
@@ -28,36 +23,28 @@ const QueryList: React.FC = () => {
 
   return (
     <div className="query-list-container">
-      <AppBar position="static" className="appbar">
-        <Toolbar>
-          <Typography variant="h6" className="title">
-            Mutual Fund App
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Container className="content-container">
-        <div className="query-list">
-          {(queries && queries.length > 0) ? queries.map((query, index) => (
-            <Card className="query-card" key={index}>
-              <CardContent>
-                <Typography variant="h6">Query {index + 1}</Typography>
-                <Typography variant="body2">Dropdown 1: {query.dropdown1}</Typography>
-                <Typography variant="body2">Dropdown 2: {query.dropdown2}</Typography>
-                <Typography variant="body2">Dropdown 3: {query.dropdown3}</Typography>
-                <Typography variant="body2">Dropdown 4: {query.dropdown4}</Typography>
-              </CardContent>
-            </Card>
-          )) : null}
-        </div>
-        <div className="button-row">
-          <Button variant="contained" color="primary" onClick={handleAskQuery} className="ask-query-button">
-            Ask Query
-          </Button>
-          <Button variant="contained" onClick={handleBack} className="back-button">
-            Back
-          </Button>
-        </div>
-      </Container>
+      <MyAppBar isHome={false} />
+      <div className="query-list">
+        {(queries && queries.length > 0) ? queries.map((query, index) => (
+          <div className="query-card" key={index}>
+            <div className="card-content">
+              <h6>Query {index + 1}</h6>
+              <p>Dropdown 1: {query.dropdown1}</p>
+              <p>Dropdown 2: {query.dropdown2}</p>
+              <p>Dropdown 3: {query.dropdown3}</p>
+              <p>Dropdown 4: {query.dropdown4}</p>
+            </div>
+          </div>
+        )) : null}
+      </div>
+      <div className="button-row">
+        <button className="ask-query-button" onClick={handleAskQuery}>
+          Ask Query
+        </button>
+        <button className="back-button" onClick={handleBack}>
+          Back
+        </button>
+      </div>
     </div>
   );
 };

@@ -16,15 +16,7 @@ body {
     background-color: black !important;
 }
 
-.title {
-    flex-grow: 1;
-}
-
-.content-container {
-    flex-grow: 1;
-    padding: 2rem;
-}
-
+/* Query cards list styling */
 .query-list {
     display: flex;
     flex-direction: column;
@@ -32,12 +24,27 @@ body {
 }
 
 .query-card {
-    background-color: #f9f9f9;
     border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
+    border-radius: 4px;
+    padding: 16px;
+    margin: 8px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
+.card-content h6 {
+    margin: 0 0 8px 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.card-content p {
+    margin: 4px 0;
+    font-size: 0.875rem;
+    color: #555;
+}
+
+/* Buttons styling */
 .button-row {
     display: flex;
     justify-content: center;
@@ -47,4 +54,38 @@ body {
 .ask-query-button {
     background-color: black;
     color: white;
+}
+
+/* Buttons styling */
+.ask-query-button,
+.back-button {
+    padding: 8px 16px;
+    margin: 8px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.ask-query-button {
+    background-color: #1976d2;
+    /* Primary color */
+    color: white;
+}
+
+.back-button {
+    background-color: #e0e0e0;
+    /* Default contained button color */
+    color: black;
+}
+
+/* Optional: Add hover effects */
+.ask-query-button:hover {
+    background-color: #1565c0;
+    /* Darker primary color on hover */
+}
+
+.back-button:hover {
+    background-color: #d5d5d5;
+    /* Slightly darker grey on hover */
 }
