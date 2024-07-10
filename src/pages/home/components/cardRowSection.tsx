@@ -1,7 +1,7 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 import './components.css'
-import { useNavigate } from "react-router-dom";
 
 interface CardContent {
     title: string;
