@@ -2,15 +2,8 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 
 import './components.css'
+import {CardRowProps} from '../../../interfaces/home_inteface';
 
-interface CardContent {
-    title: string;
-    description: string;
-};
-
-interface CardRowProps {
-    cardsContent: CardContent[];
-};
 
 const CardRow: React.FC<CardRowProps> = ({ cardsContent }) => {
     const navigate = useNavigate();
