@@ -3,12 +3,12 @@ import React from 'react';
 import './components.css'
 import { useNavigate } from "react-router-dom";
 
-type CardContent = {
+interface CardContent {
     title: string;
     description: string;
 };
 
-type CardRowProps = {
+interface CardRowProps {
     cardsContent: CardContent[];
 };
 
