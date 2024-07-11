@@ -13,6 +13,7 @@ const CardRow: React.FC<CardRowProps> = ({ cardsContent }) => {
             {cardsContent.map((content, index) => (
                 <div className="card" key={index} onClick={()=>{navigate('/card_page', {state: content})}}>
                     <h2>{content.title}</h2>
+                    <img className="" src="/investment_illustration.png"/>
                     <p>{content.description}</p>
                 </div>
             ))}

@@ -3,11 +3,6 @@ export interface Card {
   description: string;
 }
 
-export interface CardContent {
-  title: string;
-  description: string;
-};
-
 export interface CardRowProps {
-  cardsContent: CardContent[];
+  cardsContent: Card[];
 };
